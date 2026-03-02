@@ -12,10 +12,16 @@ FROM transacoes
 GROUP BY dtDia
 ORDER BY dtDia
 
-)
+),
+
+tb_acum AS (
 
 SELECT  *,
         sum(qtTransacao) OVER (ORDER BY dtDia) AS qtTransacaoAcum
 
 FROM tb_diario
 
+)
+
+SELECT *
+FROM tb_acum
