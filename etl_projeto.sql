@@ -9,7 +9,7 @@ tb_transacoes AS (
             julianday('now') - julianday(substr(DtCriacao,1,10)) AS diffDate,
             CAST(strftime('%H', substr(dtcriacao,1,19)) AS INTEGER) AS dthora
 
-    FROM transacoes        
+    FROM transacoes
 
 ),
 
@@ -192,7 +192,8 @@ AND t9.rnperiodo = 1
 
 )
 
-SELECT  *,
+SELECT  
+        *,
         1.* qttrasacoes28 / qttrasacoesvida AS engajamento28vida
 
 FROM tb_join
